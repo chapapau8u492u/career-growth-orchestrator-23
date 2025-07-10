@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #3B82F6;
+      margin-bottom: 8px;
+    }
+    
+    .subtitle {
+      color: #6B7280;
+      font-size: 14px;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #374151;
+      font-size: 14px;
+    }
+    
+    input, textarea, select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #D1D5DB;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    
+    select {
+      background-color: white;
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+    }
+    
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .success {
+      background-color: #10B981;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .error {
+      background-color: #EF4444;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #6B7280;
+    }
+    
+    .resume-selector {
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 12px;
+      background-color: #F9FAFB;
+      margin-bottom: 16px;
+    }
+    
+    .resume-selector label {
+      color: #6B7280;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">📝 JobTracker</div>
+    <div class="subtitle">Save job application details</div>
+  </div>
+
+  <div id="loading" class="loading">
+    Loading resumes...
+  </div>
+
+  <div id="success" class="success" style="display: none;"></div>
+  <div id="error" class="error" style="display: none;"></div>
+
+  <form id="jobForm" style="display: none;">
+    <div class="resume-selector">
+      <label for="resumeSelect">Select Resume Used *</label>
+      <select id="resumeSelect" required>
+        <option value="">Choose resume...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company *</label>
+      <input type="text" id="company" required>
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position *</label>
+      <input type="text" id="position" required>
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location">
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input type="text" id="salary">
+    </div>
+
+    <div class="form-group">
+      <label for="jobUrl">Job URL</label>
+      <input type="url" id="jobUrl">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Job Description</label>
+      <textarea id="description" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea id="notes" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn" id="saveBtn">
+      Save Application
+    </button>
+  </form>
+
+  <script src="popup.js"></script>
+</body>
+</html>
